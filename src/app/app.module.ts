@@ -16,6 +16,10 @@ import { AlertComponent } from './_directives/index';
 import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { UsersComponent } from './components/users/users.component';
+import { SingleUserComponent } from './components/users/single-user/single-user.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { DropdownDirective } from './shared/dropdown.directive';
     AlertComponent,
     RegisterComponent,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    UsersComponent,
+    SingleUserComponent,
+    RecipesComponent,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule,

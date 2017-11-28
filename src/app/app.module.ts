@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -20,6 +20,12 @@ import { UsersComponent } from './components/users/users.component';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
+import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
+import { RecipeDetailComponent } from './components/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './components/recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipeService } from './_services/recipe.service';
 
 
 @NgModule({
@@ -35,11 +41,17 @@ import { ShoppingListComponent } from './components/shopping-list/shopping-list.
     UsersComponent,
     SingleUserComponent,
     RecipesComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
+    RecipeListComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpModule
   ],
@@ -48,6 +60,7 @@ import { ShoppingListComponent } from './components/shopping-list/shopping-list.
     AlertService, 
     AuthenticationService, 
     UserService,
+    RecipeService,
   // providers used to create fake backend
     fakeBackendProvider,
     MockBackend,

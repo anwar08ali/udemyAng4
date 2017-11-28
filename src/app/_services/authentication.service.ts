@@ -2,12 +2,14 @@
 import { Http,Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Route, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
     token: string;
-    
-    constructor(private http: Http) { }
+    isLoggedOut = new Subject<boolean>();
+    constructor(private http: Http, private router: Router) { }
 
     login(username: string, password: string) {
          return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
@@ -26,6 +28,8 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         this.token == null;
+        this.isLoggedOut.next(true);
+        this.router.navigate(['/login']);
     }
     getToken(){
         return this.token;

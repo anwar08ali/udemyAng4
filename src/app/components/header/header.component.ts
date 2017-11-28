@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../_models/index';
+import { AuthenticationService } from '../../_services/index';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ export class HeaderComponent implements OnInit {
   //@Input() myTitle : string;
   currentUser: User;
   
-  constructor(){
+  constructor(private authenticationService: AuthenticationService,
+  ){
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   };
 
@@ -18,5 +21,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     //console.log("hh",this.myTitle);
   }
-
+  logout(){
+    this.authenticationService.logout();
+ }
 }
